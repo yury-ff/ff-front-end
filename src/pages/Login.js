@@ -39,7 +39,7 @@ function Login() {
       console.log(data.user);
       history.push("/dashboard");
     } catch (error) {
-      showAlert({ text: error.response.data.msg });
+      showAlert({ text: error });
       setLoading(false);
     }
   };

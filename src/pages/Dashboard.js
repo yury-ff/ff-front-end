@@ -99,11 +99,11 @@ function Dashboard() {
     }
   };
 
-  const chainChanged = () => {
-    window.location.reload();
-  };
-  window.ethereum.on("chainChanged", chainChanged);
-  window.ethereum.on("accountChanged", getWalletAddress);
+  // const chainChanged = () => {
+  //   window.location.reload();
+  // };
+  // window.ethereum.on("chainChanged", chainChanged);
+  // window.ethereum.on("accountChanged", getWalletAddress);
 
   useEffect(() => {
     // getAddress();
