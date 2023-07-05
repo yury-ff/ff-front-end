@@ -90,7 +90,9 @@ function Dashboard() {
 
   const updateBalance = async () => {
     try {
-      const { data } = await axios.get("/api/v1/users/updateBalance");
+      const { data } = await axios.get(
+        "https://ff-server-4tm6.onrender.com/api/v1/users/updateBalance"
+      );
       setBalance(Math.round((data.balance / 1000000) * 100) / 100);
     } catch (error) {
       console.log(error);
