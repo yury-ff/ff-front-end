@@ -4,6 +4,7 @@ import { Link, useHistory, Redirect } from "react-router-dom";
 import FormRow from "../components/FormRow";
 import { useGlobalContext } from "../context";
 import useLocalState from "../utils/localState";
+const url = "https://ff-server-4tm6.onrender.com";
 
 import axios from "axios";
 
@@ -27,10 +28,7 @@ function Login() {
     const loginUser = { email, password };
     try {
       console.log("loging in");
-      const { data } = await axios.post(
-        `https://ff-server-4tm6.onrender.com/api/v1/auth/login`,
-        loginUser
-      );
+      const { data } = await axios.post(`${url}/api/v1/auth/login`, loginUser);
       setValues({ name: "", email: "", password: "" });
       showAlert({
         text: `Welcome, ${data.user.name}. Redirecting to dashboard...`,

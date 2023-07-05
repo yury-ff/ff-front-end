@@ -106,7 +106,7 @@ function Dashboard() {
   window.ethereum.on("accountChanged", getWalletAddress);
 
   useEffect(() => {
-    getAddress();
+    // getAddress();
     updateBalance();
   }, []);
 
