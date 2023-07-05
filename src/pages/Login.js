@@ -4,9 +4,9 @@ import { Link, useHistory, Redirect } from "react-router-dom";
 import FormRow from "../components/FormRow";
 import { useGlobalContext } from "../context";
 import useLocalState from "../utils/localState";
-const url = "https://ff-server-4tm6.onrender.com";
-
 import axios from "axios";
+
+const url = "https://ff-server-4tm6.onrender.com";
 
 function Login() {
   const { saveUser } = useGlobalContext();
