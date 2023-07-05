@@ -16,9 +16,7 @@ const AppProvider = ({ children }) => {
 
   const fetchUser = async () => {
     try {
-      const { data } = await axios.get(
-        `https://ff-server-4tm6.onrender.com/api/v1/users/showMe`
-      );
+      const { data } = await axios.get(`/api/v1/users/showMe`);
       saveUser(data.user);
     } catch (error) {
       removeUser();
@@ -28,9 +26,7 @@ const AppProvider = ({ children }) => {
 
   const logoutUser = async () => {
     try {
-      await axios.delete(
-        "https://ff-server-4tm6.onrender.com/api/v1/auth/logout"
-      );
+      await axios.delete("/api/v1/auth/logout");
       removeUser();
     } catch (error) {
       console.log(error);
