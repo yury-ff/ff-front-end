@@ -30,7 +30,7 @@ function Login() {
       console.log("loging in");
       const { data } = await axios.post(
         `${url}/api/v1/auth/login`,
-        { useCredentials: true },
+        { withCredentials: true },
         loginUser
       );
       setValues({ name: "", email: "", password: "" });
