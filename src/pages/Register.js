@@ -51,7 +51,7 @@ function Register() {
     console.log(name, email, password);
     try {
       const { data } = await axios.post(
-        `/api/v1/auth/register`,
+        `https://ff-server-4tm6.onrender.com/api/v1/auth/register`,
         registerNewUser
       );
 

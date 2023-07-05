@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import FormRow from '../components/FormRow';
-import axios from 'axios';
-import useLocalState from '../utils/localState';
+import React, { useState } from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import FormRow from "../components/FormRow";
+import axios from "axios";
+import useLocalState from "../utils/localState";
 
 const ForgotPassword = () => {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
   const {
     alert,
     showAlert,
@@ -27,50 +27,53 @@ const ForgotPassword = () => {
     hideAlert();
     if (!email) {
       showAlert({
-        text: 'Please provide email',
+        text: "Please provide email",
       });
       setLoading(false);
       return;
     }
     try {
-      const { data } = await axios.post('/api/v1/auth/forgot-password', {
-        email,
-      });
-      showAlert({ text: data.msg, type: 'success' });
+      const { data } = await axios.post(
+        "https://ff-server-4tm6.onrender.com/api/v1/auth/forgot-password",
+        {
+          email,
+        }
+      );
+      showAlert({ text: data.msg, type: "success" });
       setSuccess(true);
     } catch (error) {
       showAlert({
-        text: 'Something went wrong, please try again',
+        text: "Something went wrong, please try again",
       });
       setSuccess(true);
     }
     setLoading(false);
   };
   return (
-    <Wrapper className='page'>
+    <Wrapper className="page">
       {alert.show && (
         <div className={`alert alert-${alert.type}`}>{alert.text}</div>
       )}
       {!success && (
         <form
-          className={loading ? 'form form-loading' : 'form'}
+          className={loading ? "form form-loading" : "form"}
           onSubmit={handleSubmit}
         >
           <h4>Forgot password</h4>
           {/* single form row */}
           <FormRow
-            type='email'
-            name='email'
+            type="email"
+            name="email"
             value={email}
             handleChange={handleChange}
           />
           {/* end of single form row */}
-          <button type='submit' className='btn btn-block' disabled={loading}>
-            {loading ? 'Please Wait...' : 'Get Reset Password Link'}
+          <button type="submit" className="btn btn-block" disabled={loading}>
+            {loading ? "Please Wait..." : "Get Reset Password Link"}
           </button>
           <p>
             Already a have an account?
-            <Link to='/login' className='login-link'>
+            <Link to="/login" className="login-link">
               Log In
             </Link>
           </p>
