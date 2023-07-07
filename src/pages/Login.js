@@ -7,6 +7,12 @@ import useLocalState from "../utils/localState";
 import axios from "axios";
 
 const url = "https://ff-server-4tm6.onrender.com";
+const config = {
+  headers: {
+    "Content-Type": "application/json",
+  },
+  withCredentials: true,
+};
 
 function Login() {
   const { saveUser } = useGlobalContext();
@@ -28,13 +34,11 @@ function Login() {
     const loginUser = { email, password };
     try {
       console.log("loging in");
-      const { data } = await axios.post(`${url}/api/v1/auth/login`, loginUser, {
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        withCredentials: "true",
-      });
+      const { data } = await axios.post(
+        `${url}/api/v1/auth/login`,
+        loginUser,
+        config
+      );
       setValues({ name: "", email: "", password: "" });
       showAlert({
         text: `Welcome, ${data.user.name}. Redirecting to dashboard...`,
