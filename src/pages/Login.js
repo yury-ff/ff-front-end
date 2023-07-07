@@ -33,7 +33,7 @@ function Login() {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-        credentials: "include",
+        withCredentials: "true",
       });
       setValues({ name: "", email: "", password: "" });
       showAlert({
