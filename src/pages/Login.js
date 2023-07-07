@@ -29,7 +29,10 @@ function Login() {
     try {
       console.log("loging in");
       const { data } = await axios.post(`${url}/api/v1/auth/login`, loginUser, {
-        withCredentials: true,
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
       });
       setValues({ name: "", email: "", password: "" });
       showAlert({
