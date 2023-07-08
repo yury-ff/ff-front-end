@@ -8,10 +8,10 @@ import axios from "axios";
 
 const url = "https://ff-server-4tm6.onrender.com";
 const config = {
-  headers: {
-    "Content-Type": "application/json",
-  },
-  withCredentials: true,
+  // headers: {
+  //   "Content-Type": "application/json",
+  // },
+  // withCredentials: true,
 };
 
 function Login() {
