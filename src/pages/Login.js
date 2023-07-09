@@ -44,7 +44,7 @@ function Login() {
       });
       setLoading(false);
       saveUser(data.user);
-      console.log(data);
+      console.log(user);
       history.push("/dashboard");
     } catch (error) {
       showAlert({ text: error });
