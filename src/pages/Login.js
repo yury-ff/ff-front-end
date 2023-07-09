@@ -34,15 +34,17 @@ function Login() {
     const loginUser = { email, password };
     try {
       console.log("loging in");
-      const { data } = await axios.post(`/api/v1/auth/login`, loginUser);
-      setValues({ name: "", email: "", password: "" });
-      showAlert({
-        text: `Welcome, ${data.user.name}. Redirecting to dashboard...`,
-        type: "success",
-      });
+      // const { data } = await axios.post(`/api/v1/auth/login`, loginUser);
+      await axios.post(`/api/v1/auth/login`, loginUser);
+
+      // setValues({ name: "", email: "", password: "" });
+      // showAlert({
+      //   text: `Welcome, ${data.user.name}. Redirecting to dashboard...`,
+      //   type: "success",
+      // });
       setLoading(false);
-      saveUser(data.user);
-      console.log(data.user);
+      // saveUser(data.user);
+      // console.log(data.user);
       history.push("/dashboard");
     } catch (error) {
       showAlert({ text: error });
