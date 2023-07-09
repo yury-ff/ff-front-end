@@ -16,6 +16,7 @@ const url = "https://ff-server-4tm6.onrender.com";
 
 function Login() {
   const { saveUser } = useGlobalContext();
+  const user = useGlobalContext();
   const history = useHistory();
   const [values, setValues] = useState({
     email: "",
@@ -44,7 +45,7 @@ function Login() {
       });
       setLoading(false);
       saveUser(data.user);
-
+      console.log(user);
       history.push("/dashboard");
     } catch (error) {
       showAlert({ text: error });
