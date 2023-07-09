@@ -16,7 +16,7 @@ const url = "https://ff-server-4tm6.onrender.com";
 
 function Login() {
   const { saveUser } = useGlobalContext();
-  const user = useGlobalContext();
+  const { user } = useGlobalContext();
   const history = useHistory();
   const [values, setValues] = useState({
     email: "",
