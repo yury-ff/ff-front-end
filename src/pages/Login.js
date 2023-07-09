@@ -34,8 +34,8 @@ function Login() {
     const loginUser = { email, password };
     try {
       console.log("loging in");
-      // const { data } = await axios.post(`/api/v1/auth/login`, loginUser);
-      await axios.post(`/api/v1/auth/login`, loginUser);
+      const { data } = await axios.post(`/api/v1/auth/login`, loginUser);
+      // await axios.post(`/api/v1/auth/login`, loginUser);
 
       // setValues({ name: "", email: "", password: "" });
       // showAlert({
@@ -44,7 +44,7 @@ function Login() {
       // });
       setLoading(false);
       // saveUser(data.user);
-      // console.log(data.user);
+      console.log(data);
       history.push("/dashboard");
     } catch (error) {
       showAlert({ text: error });
