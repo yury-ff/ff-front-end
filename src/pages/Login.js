@@ -37,13 +37,13 @@ function Login() {
       const { data } = await axios.post(`/api/v1/auth/login`, loginUser);
       // await axios.post(`/api/v1/auth/login`, loginUser);
 
-      // setValues({ name: "", email: "", password: "" });
-      // showAlert({
-      //   text: `Welcome, ${data.user.name}. Redirecting to dashboard...`,
-      //   type: "success",
-      // });
+      setValues({ name: "", email: "", password: "" });
+      showAlert({
+        text: `Welcome, ${data.user.name}. Redirecting to dashboard...`,
+        type: "success",
+      });
       setLoading(false);
-      // saveUser(data.user);
+      saveUser(data.user);
       console.log(data);
       history.push("/dashboard");
     } catch (error) {
