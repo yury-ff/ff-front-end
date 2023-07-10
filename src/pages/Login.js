@@ -43,6 +43,8 @@ function Login() {
         type: "success",
       });
       setLoading(false);
+      console.log(data);
+      console.log(data.user);
       saveUser(data.user);
       console.log(user);
       history.push("/dashboard");
