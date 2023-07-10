@@ -6,7 +6,7 @@ import { useGlobalContext } from "../context";
 import useLocalState from "../utils/localState";
 import axios from "axios";
 
-const url = "https://ff-server-4tm6.onrender.com";
+// const url = "https://ff-server-4tm6.onrender.com";
 // const config = {
 //   // headers: {
 //   //   "Content-Type": "application/json",
@@ -15,8 +15,7 @@ const url = "https://ff-server-4tm6.onrender.com";
 // };
 
 function Login() {
-  const { saveUser } = useGlobalContext();
-  const { user } = useGlobalContext();
+  const { saveUser, user } = useGlobalContext();
   const history = useHistory();
   const [values, setValues] = useState({
     email: "",
