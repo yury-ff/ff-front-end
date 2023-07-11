@@ -18,8 +18,12 @@ const AppProvider = ({ children }) => {
   const fetchUser = async () => {
     try {
       const { data } = await axios.get(`${url}/api/v1/users/showMe`, {
-        crossDomain: true,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Content-Type": "application/json",
+        },
         withCredentials: true,
+        credentials: "same-origin",
       });
       console.log(data.user);
       saveUser(data.user);
