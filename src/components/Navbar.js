@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import logo from "../assets/ForkedFinance.svg";
+// import logo from "../assets/ForkedFinance.svg";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useGlobalContext } from "../context";
@@ -18,10 +18,11 @@ const Navbar = () => {
       const currentAddress = await provider
         .getSigner()
         .getAddress()
-        .catch((e) => {
-          if (e.code === 4001) {
+        .catch((error) => {
+          if (error.code === 4001) {
             console.log("Rejected");
           }
+          return;
         });
 
       axios.patch(`/api/v1/users/updateUserWallet`, {
@@ -35,7 +36,7 @@ const Navbar = () => {
     <Wrapper>
       <div className="nav-center">
         <Link to="/" className="home-link">
-          <img src={logo} alt="ForkedFinance app" className="logo" />
+          <img alt="ForkedFinance app" className="logo" />
         </Link>
         {/* <Link to="/transfer" className="link">
           <div className="headerItem">Transfer</div>

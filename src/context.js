@@ -1,6 +1,6 @@
 import axios from "axios";
-import React, { useContext, useState, useEffect } from "react";
-const AppContext = React.createContext();
+import React, { createContext, useContext, useState, useEffect } from "react";
+const AppContext = createContext(null);
 const url = "https://ff-server-4tm6.onrender.com";
 
 const AppProvider = ({ children }) => {
@@ -17,9 +17,7 @@ const AppProvider = ({ children }) => {
 
   const fetchUser = async () => {
     try {
-      console.log(user);
-
-      const { data } = await axios.get(`/api/v1/users/showMe`);
+      const { data } = await axios.get(`${url}/api/v1/users/showMe`);
       console.log(data.user);
       saveUser(data.user);
     } catch (error) {

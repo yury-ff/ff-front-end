@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import main from "../assets/eth.svg";
+// import main from "../assets/eth.svg";
 import { Redirect } from "react-router-dom";
 import { useGlobalContext } from "../context";
 function Home() {
@@ -31,7 +31,7 @@ function Home() {
             Sign Up
           </Link> */}
         </div>
-        <img src={main} alt="job hunt" className="img main-img" />
+        {/* <img src={main} alt="job hunt" className="img main-img" /> */}
       </Wrapper>
     </>
   );
