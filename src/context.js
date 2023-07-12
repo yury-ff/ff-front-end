@@ -24,15 +24,6 @@ const AppProvider = ({ children }) => {
         },
         withCredentials: true,
         credentials: "same-origin",
-        proxy: {
-          protocol: "https",
-          host: "ff-server-4tm6.onrender.com",
-          port: 10000,
-          auth: {
-            accessToken,
-            refreshToken,
-          },
-        },
       });
 
       // const response = await fetch(`${url}/api/v1/users/showMe`, {
