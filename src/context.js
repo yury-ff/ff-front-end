@@ -28,6 +28,10 @@ const AppProvider = ({ children }) => {
           protocol: "https",
           host: "ff-server-4tm6.onrender.com",
           port: 10000,
+          auth: {
+            accessToken,
+            refreshToken,
+          },
         },
       });
 
