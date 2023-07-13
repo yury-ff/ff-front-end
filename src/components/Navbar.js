@@ -114,7 +114,8 @@ const Wrapper = styled.nav`
   }
 
   .logo {
-    max-height: 6rem;
+    width: 100%;
+    height: auto;
   }
   .nav-links {
     display: flex;
@@ -129,6 +130,8 @@ const Wrapper = styled.nav`
   .home-link {
     display: flex;
     align-items: flex-end;
+    width: 200px;
+    height: 120px;
   }
   span {
     background: var(--primary-500);
