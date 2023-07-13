@@ -12,6 +12,7 @@ import useLocalState from "../utils/localState";
 function Dashboard() {
   const { user } = useGlobalContext();
   const { name } = user;
+  const url = "https://server.forkedfinance.xyz";
 
   const USDCAddress = "0x0991e741f70e8B44E8771064A96BB6D350d9954E";
   const bankAddress = "0xb13a4B6EE9F895652fcEF97C4003D490Ea4d7317";
@@ -87,7 +88,7 @@ function Dashboard() {
 
   const updateBalance = async () => {
     try {
-      const { data } = await axios.get("/api/v1/users/updateBalance");
+      const { data } = await axios.get(`${url}/api/v1/users/updateBalance`);
       setBalance(Math.round((data.balance / 1000000) * 100) / 100);
     } catch (error) {
       console.log(error);
