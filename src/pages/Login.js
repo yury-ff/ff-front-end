@@ -6,16 +6,8 @@ import { useGlobalContext } from "../context";
 import useLocalState from "../utils/localState";
 import axios from "axios";
 
-// const url = "https://ff-server-4tm6.onrender.com";
-// const config = {
-//   // headers: {
-//   //   "Content-Type": "application/json",
-//   // },
-//   withCredentials: true,
-// };
-
 function Login() {
-  const { saveUser, user } = useGlobalContext();
+  const { saveUser } = useGlobalContext();
   const history = useHistory();
   const [values, setValues] = useState({
     email: "",
@@ -35,7 +27,6 @@ function Login() {
     try {
       console.log("loging in");
       const { data } = await axios.post(`/api/v1/auth/login`, loginUser);
-      // await axios.post(`/api/v1/auth/login`, loginUser);
 
       setValues({ name: "", email: "", password: "" });
       showAlert({
@@ -43,10 +34,7 @@ function Login() {
         type: "success",
       });
       setLoading(false);
-      console.log(data);
-      console.log(data.user);
       saveUser(data.user);
-      console.log(user);
       history.push("/dashboard");
     } catch (error) {
       showAlert({ text: error });

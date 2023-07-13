@@ -18,29 +18,8 @@ const AppProvider = ({ children }) => {
   const fetchUser = async () => {
     try {
       const { data } = await axios.get(`${url}/api/v1/users/showMe`, {
-        // headers: {
-        //   "Access-Control-Allow-Origin": "*",
-        //   "Content-Type": "application/json",
-        // },
         withCredentials: true,
-        // credentials: "same-origin",
       });
-
-      // const response = await fetch(`${url}/api/v1/users/showMe`, {
-      //   method: "GET", // *GET, POST, PUT, DELETE, etc.
-      //   mode: "cors", // no-cors, *cors, same-origin
-      //   cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-      //   credentials: "same-origin", // include, *same-origin, omit
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //     // 'Content-Type': 'application/x-www-form-urlencoded',
-      //   },
-      //   redirect: "follow", // manual, *follow, error
-      //   referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-      //   body: JSON.stringify(data), // body data type must match "Content-Type" header
-      // });
-
-      console.log(data.user);
       saveUser(data.user);
     } catch (error) {
       removeUser();
@@ -50,7 +29,9 @@ const AppProvider = ({ children }) => {
 
   const logoutUser = async () => {
     try {
-      await axios.delete(`/api/v1/auth/logout`);
+      await axios.delete(`${url}/api/v1/auth/logout`, {
+        withCredentials: true,
+      });
       removeUser();
     } catch (error) {
       console.log(error);
@@ -79,4 +60,4 @@ export const useGlobalContext = () => {
   return useContext(AppContext);
 };
 
-export { AppContext, AppProvider };
+export { AppProvider };

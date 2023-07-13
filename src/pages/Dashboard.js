@@ -88,7 +88,9 @@ function Dashboard() {
 
   const updateBalance = async () => {
     try {
-      const { data } = await axios.get(`${url}/api/v1/users/updateBalance`);
+      const { data } = await axios.get(`${url}/api/v1/users/updateBalance`, {
+        withCredentials: true,
+      });
       setBalance(Math.round((data.balance / 1000000) * 100) / 100);
     } catch (error) {
       console.log(error);
