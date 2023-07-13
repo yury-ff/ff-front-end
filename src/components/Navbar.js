@@ -131,7 +131,7 @@ const Wrapper = styled.nav`
     display: flex;
     align-items: center;
     width: 300px;
-    height: 100px;
+    height: 96px;
   }
   span {
     background: var(--primary-500);
