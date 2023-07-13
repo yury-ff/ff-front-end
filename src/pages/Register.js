@@ -50,10 +50,9 @@ function Register() {
     setLoading(true);
     const { name, email, password } = values;
     const registerNewUser = { name, email, password };
-    console.log(name, email, password);
     try {
       const { data } = await axios.post(
-        `${url}/api/v1/auth/register`,
+        `/api/v1/auth/register`,
         registerNewUser
       );
 
