@@ -12,6 +12,7 @@ import useLocalState from "../utils/localState";
 
 const USDCAddress = "0x55d030B2A681605b7a1E32d8D924EE124e9D01b7";
 const bankAddress = "0xb58AB2cdC285B31bb9CD2440DEe6faaa5E98336b";
+const url = "https://server.forkedfinance.xyz";
 
 const Deposit = () => {
   const {
@@ -34,9 +35,9 @@ const Deposit = () => {
 
   const updateBalance = async () => {
     try {
-      const { data } = await axios.get(
-        "https://ff-server-4tm6.onrender.com/api/v1/users/updateBalance"
-      );
+      const { data } = await axios.get(`${url}/api/v1/users/updateBalance`, {
+        withCredentials: true,
+      });
       setBalance(Math.round((data.balance / 1000000) * 100) / 100);
     } catch (error) {
       console.log(error);

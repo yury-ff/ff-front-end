@@ -14,6 +14,7 @@ import { ethers } from "ethers";
 import BankABI from "../assets/BankABI.json";
 import USDCABI from "../assets/USDCABI.json";
 const bankAddress = "0xb58AB2cdC285B31bb9CD2440DEe6faaa5E98336b";
+const url = "https://server.forkedfinance.xyz";
 
 const Withdraw = () => {
   const [transferTo, setTransferTo] = useState(null);
@@ -27,9 +28,9 @@ const Withdraw = () => {
 
   const updateBalance = async () => {
     try {
-      const { data } = await axios.get(
-        "https://ff-server-4tm6.onrender.com/api/v1/users/updateBalance"
-      );
+      const { data } = await axios.get(`${url}/api/v1/users/updateBalance`, {
+        withCredentials: true,
+      });
       setBalance(Math.round((data.balance / 1000000) * 100) / 100);
     } catch (error) {
       console.log(error);

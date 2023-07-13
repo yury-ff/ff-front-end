@@ -20,6 +20,7 @@ import {
 //     console.log(error);
 //   }
 // };
+const url = "https://server.forkedfinance.xyz";
 
 const validate = (
   <>
@@ -42,9 +43,9 @@ const Transfer = () => {
 
   const updateBalance = async () => {
     try {
-      const { data } = await axios.get(
-        "https://ff-server-4tm6.onrender.com/api/v1/users/updateBalance"
-      );
+      const { data } = await axios.get(`${url}/api/v1/users/updateBalance`, {
+        withCredentials: true,
+      });
       setBalance(Math.round((data.balance / 1000000) * 100) / 100);
     } catch (error) {
       console.log(error);
