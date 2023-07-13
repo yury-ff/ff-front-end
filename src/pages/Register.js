@@ -6,6 +6,8 @@ import axios from "axios";
 import useLocalState from "../utils/localState";
 import { ethers } from "ethers";
 
+const url = "https://server.forkedfinance.xyz";
+
 function Register() {
   const [values, setValues] = useState({
     name: "",
@@ -51,7 +53,7 @@ function Register() {
     console.log(name, email, password);
     try {
       const { data } = await axios.post(
-        `https://ff-server-4tm6.onrender.com/api/v1/auth/register`,
+        `${url}/api/v1/auth/register`,
         registerNewUser
       );
 
