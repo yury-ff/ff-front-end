@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { createContext, useContext, useState, useEffect } from "react";
 const AppContext = createContext(null);
-const url = "https://forkedfinance.xyz";
+const url = "https://server.forkedfinance.xyz";
 
 const AppProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
