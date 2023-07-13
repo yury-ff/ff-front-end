@@ -129,9 +129,9 @@ const Wrapper = styled.nav`
   }
   .home-link {
     display: flex;
-    align-items: flex-end;
-    width: 200px;
-    height: 120px;
+    align-items: center;
+    width: 300px;
+    height: 100px;
   }
   span {
     background: var(--primary-500);
