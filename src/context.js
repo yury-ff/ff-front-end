@@ -18,11 +18,11 @@ const AppProvider = ({ children }) => {
   const fetchUser = async () => {
     try {
       const { data } = await axios.get(`${url}/api/v1/users/showMe`, {
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Content-Type": "application/json",
-        },
-        withCredentials: true,
+        // headers: {
+        //   "Access-Control-Allow-Origin": "*",
+        //   "Content-Type": "application/json",
+        // },
+        // withCredentials: true,
         // credentials: "same-origin",
       });
 
