@@ -27,6 +27,7 @@ const Navbar = () => {
 
       axios.patch(`/api/v1/users/updateUserWallet`, {
         wallet: currentAddress,
+        withCredentials: true,
       });
     }
   };

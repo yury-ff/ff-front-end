@@ -33,35 +33,9 @@ function Dashboard() {
     hideAlert,
   } = useLocalState();
 
-  const getAddress = async () => {
-    if (window.ethereum && window.ethereum.isMetaMask) {
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
-      const currentAddress = await provider
-        .getSigner()
-        .getAddress()
-        .catch((e) => {
-          if (e.code === 4001) {
-            console.log("Rejected");
-          }
-        });
-
-      setCurrentAccount(currentAddress);
-    }
-  };
-
   const getWalletAddress = async () => {
     if (window.ethereum && window.ethereum.isMetaMask) {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
-      await provider
-        .send("eth_requestAccounts")
-        .then((tx) => {
-          //do whatever you want with tx
-        })
-        .catch((e) => {
-          if (e.code === 4001) {
-            console.log("Rejected");
-          }
-        });
       const currentAddress = await provider
         .getSigner()
         .getAddress()
@@ -72,17 +46,6 @@ function Dashboard() {
         });
 
       setCurrentAccount(currentAddress);
-      axios.patch(`/api/v1/users/updateUserWallet`, {
-        wallet: currentAddress,
-      });
-
-      const chain = await provider.getNetwork().catch((e) => {
-        if (e.code === 4001) {
-          console.log("Rejected");
-        }
-      });
-      getAddress();
-      setChainName(chain.name);
     }
   };
 
@@ -97,14 +60,14 @@ function Dashboard() {
     }
   };
 
-  // const chainChanged = () => {
-  //   window.location.reload();
-  // };
-  // window.ethereum.on("chainChanged", chainChanged);
-  // window.ethereum.on("accountChanged", getWalletAddress);
+  const chainChanged = () => {
+    window.location.reload();
+  };
+  window.ethereum.on("chainChanged", chainChanged);
+  window.ethereum.on("accountChanged", getWalletAddress);
 
   useEffect(() => {
-    // getAddress();
+    getWalletAddress();
     updateBalance();
   }, []);
 
