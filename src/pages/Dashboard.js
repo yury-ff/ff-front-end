@@ -12,26 +12,9 @@ import useLocalState from "../utils/localState";
 function Dashboard() {
   const { user } = useGlobalContext();
   const { name } = user;
-  const url = "https://server.forkedfinance.xyz";
-
-  const USDCAddress = "0x0991e741f70e8B44E8771064A96BB6D350d9954E";
-  const bankAddress = "0xb13a4B6EE9F895652fcEF97C4003D490Ea4d7317";
-
   const [currentAccount, setCurrentAccount] = useState(null);
-  const [chainName, setChainName] = useState(null);
+  const url = "https://server.forkedfinance.xyz";
   let [balance, setBalance] = useState(null);
-  const [input, setInput] = useState(undefined);
-  const [inputEmail, setInputEmail] = useState(undefined);
-
-  const {
-    alert,
-    showAlert,
-    loading,
-    setLoading,
-    success,
-    setSuccess,
-    hideAlert,
-  } = useLocalState();
 
   const getWalletAddress = async () => {
     if (window.ethereum && window.ethereum.isMetaMask) {
@@ -92,24 +75,6 @@ function Dashboard() {
           <br></br>
           Step 4: Withdraw Your USDT with 0.5% Fee
         </p>
-
-        {/* <p>
-          <button onClick={transferUserBalance}>
-            {""}
-            Transfer <input-span>{input}</input-span> to {inputEmail}
-          </button>
-        </p> */}
-        {/* <input
-          value={input}
-          onInput={(e) => setInput(e.target.value)}
-          placeholder={"amount"}
-        />
-        <br></br>
-        <input
-          value={inputEmail}
-          onInput={(e) => setInputEmail(e.target.value)}
-          placeholder={"email"}
-        /> */}
       </Wrapper>
     </>
   );

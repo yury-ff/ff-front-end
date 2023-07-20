@@ -55,16 +55,6 @@ const Deposit = () => {
   const getWalletAddress = async () => {
     if (window.ethereum && window.ethereum.isMetaMask) {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
-      await provider
-        .send("eth_requestAccounts")
-        .then((tx) => {
-          //do whatever you want with tx
-        })
-        .catch((e) => {
-          if (e.code === 4001) {
-            console.log("Rejected");
-          }
-        });
       const currentAddress = await provider
         .getSigner()
         .getAddress()
@@ -75,20 +65,12 @@ const Deposit = () => {
         });
 
       setCurrentAccount(currentAddress);
-      axios.patch(
-        `https://ff-server-4tm6.onrender.com/api/v1/users/updateUserWallet`,
-        {
-          wallet: currentAddress,
-        }
-      );
     }
   };
 
   const approveUSDC = async () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
-    const currentAddress = await provider.getSigner().getAddress();
-    const bankContract = new ethers.Contract(bankAddress, BankABI, signer);
     const tokenContract = new ethers.Contract(USDCAddress, USDCABI, signer);
     await tokenContract
       .approve(bankAddress, 1000000000000)
@@ -108,7 +90,6 @@ const Deposit = () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
     const contract = new ethers.Contract(bankAddress, BankABI, signer);
-    const currentAddress = await provider.getSigner().getAddress();
 
     await contract
       .depositUSDC(transferAmount * 10 ** 6)
