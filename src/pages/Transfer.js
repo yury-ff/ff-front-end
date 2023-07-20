@@ -72,13 +72,11 @@ const Transfer = () => {
       return;
     }
     try {
-      const { data } = await axios.patch(
-        `https://ff-server-4tm6.onrender.com/api/v1/users/transferUserBalance`,
-        {
-          email: transferTo,
-          value: parseInt(transferAmount),
-        }
-      );
+      const { data } = await axios.patch(`/api/v1/users/transferUserBalance`, {
+        email: transferTo,
+        value: parseInt(transferAmount),
+        withCredentials: true,
+      });
 
       showAlert({ text: data.msg, type: "success" });
       setSuccess(true);
