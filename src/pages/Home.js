@@ -44,7 +44,7 @@ const Wrapper = styled.div`
     font-weight: 700;
   }
   h2 span {
-    color: var(--primary-500);
+    color: var(--primary-200);
   }
   .main-img {
     display: none;

@@ -94,9 +94,11 @@ const Navbar = () => {
 };
 
 const Wrapper = styled.nav`
-  background: var(--white);
+  background: var(--black);
   height: 6rem;
   display: flex;
+  border-bottom-style: double;
+  border-bottom-color: var(--primary-100);
   align-items: center;
   justify-content: center;
   .nav-center {

@@ -107,7 +107,7 @@ const Wrapper = styled.section`
     display: inline-block;
     margin-left: 0.25rem;
     text-transform: capitalize;
-    color: var(--primary-500);
+    color: var(--primary-200);
     cursor: pointer;
   }
   .reset-link {
