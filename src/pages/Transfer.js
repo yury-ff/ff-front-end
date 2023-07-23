@@ -291,8 +291,10 @@ const Wrapper = styled.main`
     position: relative;
   }
   input {
-    hover: black;
+    hover: var(--primary-200);
     border-radius: 4px;
+    color: var(--primary-100);
+    background: var(--black);
     padding: 12px 20px;
     margin: 6px 0;
   }

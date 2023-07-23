@@ -205,6 +205,8 @@ const Wrapper = styled.main`
   input {
     hover: black;
     border-radius: 4px;
+    color: var(--primary-100);
+    background: var(--black);
     padding: 12px 20px;
     margin: 6px 0;
   }
