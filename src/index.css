@@ -346,7 +346,7 @@ ul {
   transition: 0.3s;
   display: flex;
   align-items: center;
-  color: black;
+  color: var(--primary-100);
 }
 
 .headerItem:hover {

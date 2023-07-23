@@ -82,9 +82,8 @@ function Dashboard() {
 
 const Wrapper = styled.div`
   p span {
-    background: var(--primary-500);
     padding: 0.15rem 0.25rem;
-    color: var(--white);
+    color: var(--primary-200);
     border-radius: var(--borderRadius);
     letter-spacing: var(--letterSpacing);
   }

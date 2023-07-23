@@ -169,8 +169,9 @@ const Wrapper = styled.main`
 
   .tradeBox {
     width: 400px;
-    background-color: var(--primary-300);
-    border: 2px solid #21273a;
+    background-color: var(--black);
+    border-style: solid;
+    border-color: var(--primary-100);
     min-height: 300px;
     border-radius: 15px;
     display: flex;
