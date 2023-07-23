@@ -84,6 +84,8 @@ const Wrapper = styled.div`
   p span {
     padding: 0.15rem 0.25rem;
     color: var(--primary-200);
+    font-size: 20px;
+    background-color: var(--primary-600);
     border-radius: var(--borderRadius);
     letter-spacing: var(--letterSpacing);
   }

@@ -405,7 +405,7 @@ ul {
   height: 55px;
   font-size: 20px;
   border-radius: 12px;
-  color: var(--primary-100);
+  color: var(--black);
   font-weight: bold;
   transition: 0.3s;
   margin-bottom: 30px;
@@ -519,11 +519,11 @@ ul {
 
 .swapButton:hover {
   cursor: pointer;
-  background-color: var(--primary-900);
+  background-color: var(--white);
 }
 .validateButton:hover {
   cursor: pointer;
-  background-color: var(--primary-100);
+  background-color: var(--white);
 }
 
 .tokenLogo {
