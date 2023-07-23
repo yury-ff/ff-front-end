@@ -25,7 +25,6 @@ function Login() {
     const { email, password } = values;
     const loginUser = { email, password };
     try {
-      console.log("loging in");
       const { data } = await axios.post(`/api/v1/auth/login`, loginUser);
 
       setValues({ name: "", email: "", password: "" });

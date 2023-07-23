@@ -116,7 +116,7 @@ const Deposit = () => {
     <Wrapper>
       <div className="tradeBox">
         <div className="tradeBoxHeader">
-          <h4>USDT - Tether. In...</h4>
+          <h4>USDT In...</h4>
           <Popover
             content={setting}
             title="Balance"
