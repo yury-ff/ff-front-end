@@ -1,39 +1,16 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import useLocalState from "../utils/localState";
 
 import { Input, Popover, Radio, Modal, message } from "antd";
-import {
-  ArrowDownOutlined,
-  DownOutlined,
-  SettingOutlined,
-  WalletTwoTone,
-} from "@ant-design/icons";
+import { WalletTwoTone } from "@ant-design/icons";
 
-// const updateBalance = async () => {
-//   try {
-//     const { data } = await axios.get("/api/v1/users/updateBalance");
-//     setBalance(data.balance);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
 const url = "https://server.forkedfinance.xyz";
-
-const validate = (
-  <>
-    <div className="validation"> Failed </div>
-  </>
-);
 
 const Transfer = () => {
   let [transferTo, setTransferTo] = useState(null);
   const [transferAmount, setTransferAmount] = useState(null);
-  const [name, setName] = useState(null);
-  const [email, setEmail] = useState(null);
-  const [wallet, setWallet] = useState(null);
   const [isAlertVisible, setIsAlertVisible] = useState(false);
   const [isResultVisible, setIsResultVisible] = useState(false);
 
@@ -101,7 +78,6 @@ const Transfer = () => {
         `/api/v1/users/validateUserTo`,
         findUser
       );
-      console.log(data);
 
       setEmail(data.email);
       setName(data.name);

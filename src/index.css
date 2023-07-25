@@ -228,6 +228,7 @@ ul {
   border-radius: var(--borderRadius);
   background: var(--backgroundColor);
   border: 1px solid var(--grey-200);
+  color: var(--primary-100);
 }
 
 .form-row {

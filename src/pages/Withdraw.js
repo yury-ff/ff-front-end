@@ -1,23 +1,15 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import { Input, Popover, Radio, Modal, message } from "antd";
-import {
-  ArrowDownOutlined,
-  DownOutlined,
-  SettingOutlined,
-  WalletTwoTone,
-} from "@ant-design/icons";
+import { WalletTwoTone } from "@ant-design/icons";
 
 import axios from "axios";
 import { ethers } from "ethers";
 import BankABI from "../assets/BankABI.json";
-import USDCABI from "../assets/USDCABI.json";
 const bankAddress = "0xb58AB2cdC285B31bb9CD2440DEe6faaa5E98336b";
 const url = "https://server.forkedfinance.xyz";
 
 const Withdraw = () => {
-  const [transferTo, setTransferTo] = useState(null);
   const [withdrawalAmount, setwithdrawalAmount] = useState(null);
   const [currentAccount, setCurrentAccount] = useState(null);
   let [balance, setBalance] = useState(null);

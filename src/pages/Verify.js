@@ -16,7 +16,7 @@ const VerifyPage = () => {
   const verifyToken = async () => {
     setLoading(true);
     try {
-      const { data } = await axios.post(
+      await axios.post(
         "https://ff-server-4tm6.onrender.com/api/v1/auth/verify-email",
         {
           verificationToken: query.get("token"),
