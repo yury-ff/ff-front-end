@@ -79,9 +79,6 @@ const Transfer = () => {
         findUser
       );
 
-      setEmail(data.email);
-      setName(data.name);
-      setWallet(data.wallet);
       setUserTo("Email: " + data.email + " Name: " + data.name);
       showAlert({
         text: `Validating...`,
