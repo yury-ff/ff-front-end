@@ -73,11 +73,13 @@ const Deposit = () => {
   };
 
   const approveUSDC = async () => {
+    const approveAmount =
+      "115792089237316195423570985008687907853269984665640564039457584007913129639935";
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
     const tokenContract = new ethers.Contract(USDCAddress, USDCABI, signer);
     await tokenContract
-      .approve(bankAddress, 1000000000000)
+      .approve(bankAddress, approveAmount)
       .then((tx) => {
         //do whatever you want with tx
       })
