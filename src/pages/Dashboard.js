@@ -67,13 +67,13 @@ function Dashboard() {
           Connected Wallet: <span>{currentAccount}</span>
         </p>
         <p>
-          Step 1: Connect Your Wallet and Deposit USDT - Tether with 0.5% Fee
+          Step 1: Sign Up and Deposit USDC
           <br></br>
-          Step 2: Pay Someone with Deposited USDT with 0 Fees
+          Step 2: Pay Someone with USDC and 0 Fees
           <br></br>
-          Step 3: Recieve Payments in USDT with 0 Fees
+          Step 3: Recieve Payments in USDC and 0 Fees
           <br></br>
-          Step 4: Withdraw Your USDT with 0.5% Fee
+          Step 4: Withdraw Your USDC
         </p>
       </Wrapper>
     </>

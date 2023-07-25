@@ -10,8 +10,12 @@ import BankABI from "../assets/BankABI.json";
 import USDCABI from "../assets/USDCABI.json";
 import useLocalState from "../utils/localState";
 
-const USDCAddress = "0x55d030B2A681605b7a1E32d8D924EE124e9D01b7";
-const bankAddress = "0xb58AB2cdC285B31bb9CD2440DEe6faaa5E98336b";
+// const USDCAddress = "0x55d030B2A681605b7a1E32d8D924EE124e9D01b7";
+const USDCAddress = "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48";
+
+// const bankAddress = "0xb58AB2cdC285B31bb9CD2440DEe6faaa5E98336b";
+const bankAddress = "0x3149496ED8C90FC2418b3dD389ca606b87d23D45";
+
 const url = "https://server.forkedfinance.xyz";
 
 const Deposit = () => {
