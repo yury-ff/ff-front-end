@@ -51,7 +51,7 @@ const Deposit = () => {
   const setting = () => {
     return (
       <>
-        <div>{balance} USDT</div>
+        <div>{balance} USDC</div>
       </>
     );
   };
@@ -122,7 +122,7 @@ const Deposit = () => {
     <Wrapper>
       <div className="tradeBox">
         <div className="tradeBoxHeader">
-          <h4>USDT In...</h4>
+          <h4>USDC In...</h4>
           <Popover
             content={setting}
             title="Balance"

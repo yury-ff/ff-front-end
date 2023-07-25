@@ -15,13 +15,15 @@ function Home() {
             Banking
           </h2>
           <p>
-            Step 1: Sign Up and Deposit USDC
+            Sign Up and Connect Your Wallet
             <br></br>
-            Step 2: Pay Someone with USDC and 0 Fees
+            Deposit USDC to the Smart Contract
             <br></br>
-            Step 3: Recieve Payments in USDC and 0 Fees
+            Pay Someone with USDC without Gas or Transaction Fees
             <br></br>
-            Step 4: Withdraw Your USDC
+            Recieve Payments in USDC to Your Account
+            <br></br>
+            Withdraw Your USDC
           </p>
 
           {/* <Link to="/login" className="btn">

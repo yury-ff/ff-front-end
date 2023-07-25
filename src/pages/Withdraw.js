@@ -34,7 +34,7 @@ const Withdraw = () => {
   const setting = () => {
     return (
       <>
-        <div>{balance} USDT</div>
+        <div>{balance} USDC</div>
       </>
     );
   };
@@ -86,7 +86,7 @@ const Withdraw = () => {
     <Wrapper>
       <div className="tradeBox">
         <div className="tradeBoxHeader">
-          <h4>USDT Out...</h4>
+          <h4>USDC Out...</h4>
           <Popover
             content={setting}
             title="Balance"
