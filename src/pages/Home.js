@@ -15,15 +15,13 @@ function Home() {
             Banking
           </h2>
           <p>
-            Sign Up
-            <br></br>
-            Connect Your Wallet and Deposit USDC
-            <br></br>
-            Pay Someone with USDC without Gas or Transaction Fees
-            <br></br>
-            Recieve Payments in USDC to Your Account
-            <br></br>
-            Withdraw Your USDC
+            <ul>
+              <li>Sign Up</li>
+              <li>Connect Your Wallet and Deposit USDC</li>
+              <li>Pay Someone with USDC without Gas or Transaction Fees</li>
+              <li>Recieve Payments in USDC to Your Account</li>
+              <li> Withdraw Your USDC</li>
+            </ul>
           </p>
 
           {/* <Link to="/login" className="btn">
@@ -51,6 +49,15 @@ const Wrapper = styled.div`
   .main-img {
     display: none;
   }
+  li::marker {
+    color: var(--primary-200);
+    content: '◍';
+  }
+  li {
+    padding-left: 12px;
+    cursor: pointer;
+  }
+  
   @media (min-width: 992px) {
     grid-template-columns: 1fr 1fr;
     column-gap: 6rem;

@@ -96,6 +96,14 @@ const Wrapper = styled.div`
     border-radius: var(--borderRadius);
     letter-spacing: var(--letterSpacing);
   }
+  li::marker {
+    color: var(--primary-200);
+    content: "◍";
+  }
+  li {
+    padding-left: 12px;
+    cursor: pointer;
+  }
   button {
     margin: 0.15rem;
   }
