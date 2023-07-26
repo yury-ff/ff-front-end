@@ -67,15 +67,12 @@ function Dashboard() {
           Connected Wallet: <span>{currentAccount}</span>
         </p>
         <p>
-          Sign Up and Connect Your Wallet
-          <br></br>
-          Deposit USDC to the Smart Contract
-          <br></br>
-          Pay Someone with USDC without Gas or Transaction Fees
-          <br></br>
-          Recieve Payments in USDC to Your Account
-          <br></br>
-          Withdraw Your USDC
+          <ul>
+            <li>Connect Your Wallet and Deposit USDC</li>
+            <li>Pay Someone with USDC without Gas or Transaction Fees</li>
+            <li>Recieve Payments in USDC to Your Account</li>
+            <li> Withdraw Your USDC</li>
+          </ul>
         </p>
       </Wrapper>
     </>

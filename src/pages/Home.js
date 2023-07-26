@@ -15,9 +15,9 @@ function Home() {
             Banking
           </h2>
           <p>
-            Sign Up and Connect Your Wallet
+            Sign Up
             <br></br>
-            Deposit USDC to the Smart Contract
+            Connect Your Wallet and Deposit USDC
             <br></br>
             Pay Someone with USDC without Gas or Transaction Fees
             <br></br>
