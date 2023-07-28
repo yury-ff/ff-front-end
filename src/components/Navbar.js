@@ -6,6 +6,12 @@ import { Link } from "react-router-dom";
 import { useGlobalContext } from "../context";
 
 import { ethers } from "ethers";
+import {
+  TwitterCircleFilled,
+  TwitterOutlined,
+  GithubFilled,
+  GithubOutlined,
+} from "@ant-design/icons";
 
 // import BankABI from "../assets/BankABI.json";
 // import USDCABI from "../assets/USDCABI.json";
@@ -114,7 +120,9 @@ const Wrapper = styled.nav`
 
     justify-content: space-around;
   }
-
+  .noUserIcon {
+    display: inline-block;
+  }
   .logo {
     width: 100%;
     height: auto;

@@ -68,10 +68,10 @@ function Dashboard() {
         </p>
         <p>
           <ul>
-            <li>Connect Your Wallet and Deposit USDC</li>
+            <li>Connect Your Wallet and Deposit USDC with 0.25% Fee</li>
             <li>Pay Someone with USDC without Gas or Transaction Fees</li>
             <li>Recieve Payments in USDC to Your Account</li>
-            <li> Withdraw Your USDC</li>
+            <li> Withdraw Your USDC with 0.25% Fee</li>
           </ul>
         </p>
       </Wrapper>

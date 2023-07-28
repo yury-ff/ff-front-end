@@ -15,6 +15,8 @@ import Deposit from "./pages/Deposit";
 import Withdraw from "./pages/Withdraw";
 
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+
 import { useGlobalContext } from "./context";
 function App() {
   const { isLoading } = useGlobalContext();
@@ -63,6 +65,7 @@ function App() {
           <Error />
         </Route>
       </Switch>
+      <Footer />
     </Router>
   );
 }
