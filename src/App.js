@@ -1,15 +1,5 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import {
-  Home,
-  Error,
-  Register,
-  Login,
-  Verify,
-  Dashboard,
-  ProtectedRoute,
-  ForgotPassword,
-  ResetPassword,
-} from "./pages";
+import { Home, Error, Dashboard } from "./pages";
 import Transfer from "./pages/Transfer";
 import Deposit from "./pages/Deposit";
 import Withdraw from "./pages/Withdraw";
@@ -34,32 +24,17 @@ function App() {
         <Route path="/" exact>
           <Home />
         </Route>
-        <ProtectedRoute path="/transfer" exact>
+        <Route path="/transfer" exact>
           <Transfer />
-        </ProtectedRoute>
-        <ProtectedRoute path="/deposit" exact>
+        </Route>
+        <Route path="/deposit" exact>
           <Deposit />
-        </ProtectedRoute>
-        <ProtectedRoute path="/withdraw" exact>
+        </Route>
+        <Route path="/withdraw" exact>
           <Withdraw />
-        </ProtectedRoute>
-        <Route path="/login" exact>
-          <Login />
         </Route>
-        <Route path="/register" exact>
-          <Register />
-        </Route>
-        <ProtectedRoute path="/dashboard" exact>
+        <Route path="/dashboard" exact>
           <Dashboard />
-        </ProtectedRoute>
-        <Route path="/forgot-password" exact>
-          <ForgotPassword />
-        </Route>
-        <Route path="/user/verify-email" exact>
-          <Verify />
-        </Route>
-        <Route path="/user/reset-password" exact>
-          <ResetPassword />
         </Route>
         <Route path="*">
           <Error />

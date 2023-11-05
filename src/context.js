@@ -1,7 +1,9 @@
 import axios from "axios";
 import React, { createContext, useContext, useState, useEffect } from "react";
-const AppContext = createContext(null);
-const url = "https://server.forkedfinance.xyz";
+import { ethers } from "ethers";
+const AppContext = React.createContext();
+// const url = "http://localhost:3000/api/v1/balances";
+const url = "https://ff-backend-y8on.onrender.com/api/v1/balances";
 
 const AppProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -17,25 +19,32 @@ const AppProvider = ({ children }) => {
 
   const fetchUser = async () => {
     try {
-      const { data } = await axios.get(`${url}/api/v1/users/showMe`, {
-        withCredentials: true,
-      });
-      saveUser(data.user);
+      if (window.ethereum && window.ethereum.isMetaMask) {
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const currentAddress = await provider
+          .getSigner()
+          .getAddress()
+          .catch((error) => {
+            if (error.code === 4001) {
+              console.log("Rejected");
+            }
+            return;
+          });
+
+        const resp = await axios({
+          url: `${process.env.REACT_APP_SERVER_URL}/balances/${currentAddress}`,
+          method: "get",
+        });
+        if (resp.data == 0) {
+          saveUser("0");
+        } else {
+          saveUser(resp.data);
+        }
+      }
     } catch (error) {
       removeUser();
     }
     setIsLoading(false);
-  };
-
-  const logoutUser = async () => {
-    try {
-      await axios.delete(`/api/v1/auth/logout`, {
-        withCredentials: true,
-      });
-      removeUser();
-    } catch (error) {
-      console.log(error);
-    }
   };
 
   useEffect(() => {
@@ -48,7 +57,6 @@ const AppProvider = ({ children }) => {
         isLoading,
         saveUser,
         user,
-        logoutUser,
       }}
     >
       {children}

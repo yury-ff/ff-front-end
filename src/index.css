@@ -56,13 +56,14 @@ html {
   --headingFont: "Roboto", sans-serif;
   --bodyFont: "Nunito", sans-serif;
   --smallText: 0.7em;
+
   /* rest of the vars */
   --backgroundColor: var(--black);
   --textColor: var(--grey-100);
   --borderRadius: 0.25rem;
   --letterSpacing: 1px;
   --transition: 0.3s ease-in-out all;
-  --max-width: 1120px;
+  --max-width: 1500px;
   --fixed-width: 500px;
   --fluid-width: 90vw;
 
@@ -176,7 +177,14 @@ ul {
 .btn-small {
   padding: 0.3rem 0.6rem;
   font-size: 0.8rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+.btn-small-connect {
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
   margin-left: 1rem;
+  margin-right: 1rem;
 }
 .btn:disabled {
   cursor: not-allowed;
@@ -184,11 +192,14 @@ ul {
 /* alerts */
 .alert {
   padding: 0.375rem 0.75rem;
-  margin: 0 auto;
+  margin: 2px auto;
   border-color: transparent;
   border-radius: var(--borderRadius);
   width: var(--fluid-width);
-  max-width: 400px;
+  width: 33%;
+  min-width: 290px;
+
+  max-width: 440px;
   text-align: center;
   text-transform: capitalize;
 }
@@ -200,6 +211,191 @@ ul {
 .alert-success {
   color: var(--green-dark);
   background: var(--green-light);
+}
+
+/* stake content  */
+.stakeContent {
+  background-color: blue;
+  max-width: 1300px;
+  min-width: 80%;
+  position: absolute;
+  bottom: 0;
+}
+
+.stakeCards {
+  background-color: var(--black);
+  max-width: 1300px;
+  min-width: 100%;
+  display: grid;
+  justify-content: center;
+  column-gap: 10px;
+  row-gap: 10px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.stakeCard {
+  width: 100%;
+  max-width: 600px;
+  min-width: 300px;
+
+  background-color: var(--black);
+  border-style: solid;
+  border-color: var(--primary-100);
+  min-height: 350px;
+  border-radius: 15px;
+  display: flex;
+  align-self: center;
+  position: relative;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.stakeCardFF {
+  width: 100%;
+  max-width: 600px;
+  min-width: 300px;
+
+  background-color: var(--black);
+  border-style: solid;
+  border-color: var(--primary-100);
+  min-height: 400px;
+  border-radius: 15px;
+  display: flex;
+  align-self: center;
+  position: relative;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.stakeCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 98%;
+  padding-top: 7px;
+}
+.stakeCardFooter {
+  min-width: 95%;
+  position: absolute;
+  bottom: 0;
+}
+
+.cardRow {
+  display: flex;
+  justify-content: space-between;
+}
+.cardRowButtons {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.cardButton {
+  cursor: pointer;
+  flex-direction: column;
+  display: flex;
+  margin-right: 3px;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-400);
+  width: max-content;
+  padding: 10px;
+  height: 40px;
+  font-size: 17px;
+  border-radius: 12px;
+  color: black;
+  transition: 0.3s;
+  margin-bottom: 8px;
+}
+.modalButton {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-400);
+  width: 95%;
+  padding: 10px;
+  height: 40px;
+  font-size: 17px;
+  border-radius: 12px;
+  color: black;
+  transition: 0.3s;
+  margin-bottom: 8px;
+  align-self: center;
+}
+.modal-buttons {
+  display: flex;
+
+  justify-content: center;
+}
+
+.tradeBox {
+  width: 35%;
+  max-width: 450px;
+  min-width: 300px;
+
+  background-color: var(--black);
+  border-style: solid;
+  border-color: var(--primary-100);
+  min-height: 300px;
+  border-radius: 15px;
+  display: flex;
+  align-self: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.tradeBoxHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 98%;
+}
+.header span {
+  padding: 0.15rem 0.25rem;
+  color: var(--primary-200);
+  font-size: 100%;
+  background-color: var(--primary-600);
+  border-radius: var(--borderRadius);
+  letter-spacing: var(--letterSpacing);
+}
+/* media */
+
+@media (max-width: 830px) {
+  .page {
+    display: grid;
+    height: 1660px;
+  }
+
+  .stakeCards {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-center {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 5px;
+    flex-wrap: wrap;
+  }
+  .nav-links {
+    justify-content: space-around;
+    align-items: center;
+    max-height: 20px;
+  }
+  .btn-small {
+    margin-right: 0.1rem;
+    margin-left: 0.1rem;
+  }
+  .link {
+    margin: 0.1rem;
+  }
+  .inTextLink {
+    /* text-decoration: none; */
+    font-size: small;
+  }
 }
 /* form */
 
@@ -282,11 +478,19 @@ ul {
   margin-top: -1rem;
 }
 .page {
-  min-height: calc(100vh - 9rem);
-  width: var(--fluid-width);
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding-top: 3rem;
+  min-height: 875px;
+  display: flex;
+  text-align: left;
+  justify-content: center;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  position: relative;
+  width: 100%;
+  max-width: 1500px;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 0%);
 }
 .page-center {
   min-height: 100vh;
@@ -305,14 +509,13 @@ ul {
   cursor: not-allowed;
 }
 
-/* header {
+.header {
   height: 100px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 50px;
-  padding-right: 50px;
-} */
+  align-items: left;
+  margin: 5px;
+  position: absolute;
+  left: 10%;
+}
 
 /* .logo {
   width: 40px;
@@ -381,7 +584,13 @@ ul {
 .link {
   /* text-decoration: none; */
   color: var(--primary-200);
-  margin: 2rem;
+  margin: 1rem;
+}
+.inTextLink {
+  /* text-decoration: none; */
+  color: var(--primary-100);
+  font-weight: 700;
+  text-decoration-line: underline;
 }
 
 .cog {
@@ -402,7 +611,7 @@ ul {
   justify-content: center;
   align-items: center;
   background-color: var(--primary-600);
-  width: calc(100%);
+  width: 49%;
 
   height: 55px;
   font-size: 20px;
@@ -420,10 +629,10 @@ ul {
   justify-content: center;
   align-items: center;
   background-color: var(--primary-400);
-  width: calc(60%);
-
+  width: 49%;
   height: 55px;
-  font-size: 15px;
+  font-size: 20px;
+  font-weight: bold;
   border-radius: 12px;
   color: black;
   transition: 0.3s;

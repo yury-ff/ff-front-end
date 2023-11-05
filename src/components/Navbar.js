@@ -1,22 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import logo from "../assets/FF-logo.png";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import { useGlobalContext } from "../context";
 
 import { ethers } from "ethers";
-import {
-  TwitterCircleFilled,
-  TwitterOutlined,
-  GithubFilled,
-  GithubOutlined,
-} from "@ant-design/icons";
 
 // import BankABI from "../assets/BankABI.json";
 // import USDCABI from "../assets/USDCABI.json";
 
 const Navbar = () => {
+  const [currentAccount, setCurrentAccount] = useState(null);
+  const { user } = useGlobalContext();
+
   const getWalletAddress = async () => {
     if (window.ethereum && window.ethereum.isMetaMask) {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -30,15 +26,14 @@ const Navbar = () => {
           }
           return;
         });
-
-      axios.patch(`/api/v1/users/updateUserWallet`, {
-        wallet: currentAddress,
-        withCredentials: true,
-      });
+      setCurrentAccount(currentAddress);
     }
   };
 
-  const { user, logoutUser } = useGlobalContext();
+  useEffect(() => {
+    getWalletAddress();
+  }, []);
+
   return (
     <Wrapper>
       <div className="nav-center">
@@ -48,50 +43,54 @@ const Navbar = () => {
         {/* <Link to="/transfer" className="link">
           <div className="headerItem">Transfer</div>
         </Link> */}
-        {!user && (
-          <div>
-            <Link to="/login" className="btn">
-              Sign In
-            </Link>
-            <Link to="/register" className="btn">
-              Sign Up
-            </Link>
+
+        {/* Wallet: <span>{currentAccount}</span> */}
+
+        {!currentAccount && (
+          <div className="nav-links">
+            <div className="nav-links-buttons">
+              <Link to="/dashboard" className="link">
+                <div className="headerItem">Dashbord</div>
+              </Link>
+              <Link to="/transfer" className="link">
+                <div className="headerItem">Transfer</div>
+              </Link>
+            </div>
+            <div>
+              <button
+                className="btn btn-small"
+                onClick={() => {
+                  getWalletAddress();
+                }}
+              >
+                {" "}
+                Connect{" "}
+              </button>
+            </div>
           </div>
         )}
 
-        {/* Wallet: <span>{currentAccount}</span> */}
-        {user && (
+        {currentAccount && (
           <div className="nav-links">
-            <Link to="/transfer" className="link">
-              <div className="headerItem">Transfer</div>
-            </Link>
-            <Link to="/deposit" className="link">
-              <div className="headerItem">Deposit</div>
-            </Link>
-            <Link to="/withdraw" className="link">
-              <div className="headerItem">Withdraw</div>
-            </Link>
-          </div>
-        )}
-        {user && (
-          <div className="nav-links">
-            <button
-              className="btn btn-small"
-              onClick={() => {
-                getWalletAddress();
-              }}
-            >
-              {" "}
-              Connect{" "}
-            </button>
-            <button
-              className="btn btn-small"
-              onClick={() => {
-                logoutUser();
-              }}
-            >
-              logout
-            </button>
+            <div className="nav-links-buttons">
+              <Link to="/dashboard" className="link">
+                <div className="headerItem">Dashbord</div>
+              </Link>
+              <Link to="/transfer" className="link">
+                <div className="headerItem">Transfer</div>
+              </Link>
+            </div>
+            <div className="connect">
+              <button
+                className="btn btn-small-connect"
+                onClick={() => {
+                  getWalletAddress();
+                }}
+              >
+                {" "}
+                Connected{" "}
+              </button>
+            </div>
           </div>
         )}
       </div>
@@ -100,20 +99,14 @@ const Navbar = () => {
 };
 
 const Wrapper = styled.nav`
-  background: var(--black);
-  height: 6rem;
-  display: flex;
-  border-bottom-style: solid;
-  border-bottom-color: var(--primary-100);
-  align-items: center;
-  justify-content: center;
   .nav-center {
-    width: var(--fluid-width);
-    max-width: var(--max-width);
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
+    border-bottom-style: solid;
+    border-bottom-color: var(--primary-100);
   }
   .nav-center-nouser {
     display: flex;
@@ -130,7 +123,11 @@ const Wrapper = styled.nav`
   .nav-links {
     display: flex;
     justify-content: space-between;
-    align-items: right;
+    align-items: center;
+   
+  }
+  .nav-links-buttons {
+    display: flex;
   }
   .nav-links p {
     margin: 0;
@@ -149,17 +146,8 @@ const Wrapper = styled.nav`
     color: var(--white);
     border-radius: var(--borderRadius);
     letter-spacing: var(--letterSpacing);
-  }
-
-  @media (min-width: 776px) {
-    .nav-links {
-      flex-direction: row;
-      align-items: center;
-    }
-    .nav-links p {
-      margin: 0;
-      margin-right: 0rem;
-    }
+  .connect {
+    display: inline;
   }
 `;
 

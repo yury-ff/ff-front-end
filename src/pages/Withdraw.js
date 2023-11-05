@@ -83,10 +83,10 @@ const Withdraw = () => {
   }, []);
 
   return (
-    <Wrapper>
+    <Wrapper className="page">
       <div className="tradeBox">
         <div className="tradeBoxHeader">
-          <h4>USDC Out...</h4>
+          <h4>USDC Out - 0.5% Fee...</h4>
           <Popover
             content={setting}
             title="Balance"
@@ -131,9 +131,10 @@ const Withdraw = () => {
 
 const Wrapper = styled.main`
   display: flex;
-  justify-content: center;
+  flex-flow: column wrap;
+  justify-content: start;
   text-align: center;
-  padding-top: 5rem;
+  padding-top: 3rem;
 
   .tradeBox {
     width: 400px;
@@ -143,13 +144,13 @@ const Wrapper = styled.main`
     min-height: 300px;
     border-radius: 15px;
     display: flex;
-    justify-content: center;
+    align-self: center;
+    justify-content: flex-end;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
     padding-left: 30px;
     padding-right: 30px;
   }
+
   .tradeBoxHeader {
     display: flex;
     justify-content: space-between;
