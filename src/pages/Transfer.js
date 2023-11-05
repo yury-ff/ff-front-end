@@ -138,6 +138,8 @@ const Transfer = () => {
     e.preventDefault();
     setLoading(true);
     hideAlert();
+    console.log("test");
+
     console.log(process.env.REACT_APP_SERVER_URL);
     if (!transferTo) {
       showAlert({
