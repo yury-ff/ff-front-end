@@ -147,7 +147,7 @@ const Wrapper = styled.nav`
     border-radius: var(--borderRadius);
     letter-spacing: var(--letterSpacing);
   .connect {
-    display: inline;
+    
   }
 `;
 

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useGlobalContext } from "../context";
 
 import { useEffect, useState } from "react";
+
 import { ethers } from "ethers";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
@@ -80,6 +81,8 @@ const secondsPerYear = 31536000;
 function Dashboard() {
   const { user } = useGlobalContext();
   const [currentAccount, setCurrentAccount] = useState(null);
+  const [shortCurrentAccount, setShortCurrentAccount] = useState(null);
+
   const [amount, setAmount] = useState(null);
   const [usdcAccountBalance, setUsdcAccountBalance] = useState(null);
   const [fidFFAccountBalance, setFidFFAccountBalance] = useState(null);
@@ -655,8 +658,11 @@ function Dashboard() {
             console.log("Rejected");
           }
         });
-      setCurrentAccount(currentAddress);
 
+      setCurrentAccount(currentAddress);
+      setShortCurrentAccount(
+        currentAddress.slice(0, 7) + "..." + currentAddress.slice(36)
+      );
       const signer = provider.getSigner();
 
       async function signerContract(address, ABI) {
@@ -1091,10 +1097,14 @@ function Dashboard() {
         <Link to="/transfer" className="inTextLink">
           Pay Someone without Gas or Transaction Fees
         </Link>
-        <br></br>
-        Avaliable Balance: <span>{balance}</span>
-        <br></br>
-        Connected Wallet: <span>{currentAccount}</span>
+
+        <div>
+          Avaliable Balance: <span>{balance}</span>
+        </div>
+
+        <div className="wallet">
+          Connected Wallet: <span>{shortCurrentAccount}</span>
+        </div>
       </div>
 
       <div className="stakeContent">

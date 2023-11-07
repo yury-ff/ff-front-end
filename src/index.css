@@ -366,11 +366,16 @@ ul {
 @media (max-width: 830px) {
   .page {
     display: grid;
-    height: 1660px;
+    height: 1620px;
   }
 
   .stakeCards {
     grid-template-columns: 1fr;
+  }
+
+  .btn-small-connect {
+    margin-left: 0rem;
+    margin-right: 2rem;
   }
 
   .nav-center {
@@ -510,9 +515,9 @@ ul {
 }
 
 .header {
-  height: 100px;
+  height: 90px;
   align-items: left;
-  margin: 5px;
+  /* margin: 5px; */
   position: absolute;
   left: 10%;
 }
@@ -776,4 +781,9 @@ ul {
   font-size: 13px;
   font-weight: 300;
   color: #51596f;
+}
+
+.btn-small-connect {
+  margin-left: 0rem;
+  margin-right: 2rem;
 }
